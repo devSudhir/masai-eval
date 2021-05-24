@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nike Inventory</title>
+    <style>
+      #container {
+        width: 95vw;
+        margin: auto;
+      }
+      h1 {
+        text-align: center;
+        font-family: fantasy;
+        color: navy;
+      }
+      #div1 {
+        width: 20vw;
+        float: left;
+      }
+      #div1 input {
+        display: block;
+        margin-bottom: 1vw;
+        size: 30;
+      }
+      #div1 button {
+        color: rgb(131, 231, 118);
+        background: transparent;
+      }
+
+      #div1,
+      #div2 {
+        height: 70vh;
+        padding: 2vw;
+        border: 0.1vw solid black;
+      }
+      #div2 {
+        width: 65vw;
+        float: left;
+        margin: auto;
+        display: grid;
+        grid-template-columns: auto auto auto;
+        grid-gap: 2vw;
+      }
+      #div2 div {
+        width: 20vw;
+        border: 0.3vw solid black;
+      }
+      .gridBox {
+        text-align: center;
+      }
+      .gridBox button {
+        margin: 0 1vw 1vw 2vw;
+        border-radius: 0.5vw;
+        background: transparent;
+      }
+      .gridBox > img {
+        height: 30%;
+        width: 100%;
+      }
+      .gridBox > p {
+        width: 40%;
+        display: inline;
+      }
+      #div2 > .gridBox > div {
+        width: 90%;
+        height: 40%;
+        margin-bottom: 1vw;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Nike Inventory</h1>
+    <div id="container">
+      <div id="div1">
+        <form>
+          <input type="text" name="Name" id="Name" placeholder="Name" />
+          <input type="number" name="Price" id="price" placeholder="Price" />
+          <textarea
+            id="desc"
+            name="desc"
+            placeholder="Description"
+            rows="4"
+            cols="25"
+          ></textarea>
+          <input type="date" id="edd" placeholder="Estimated delivery Date" />
+          <input type="url" id="img" placeholder="Image url (optional)" />
+          <button id="add">Add Product</button>
+        </form>
+      </div>
+      <div id="div2">
+        <div class="gridBox">
+          <img id="image1" src="" alt="" />
+          <p id="productName1"></p>
+          <p id="price1"></p>
+          <div id="desc1"></div>
+          <p id="edd"></p>
+          <button class="remove">Remove</button>
+          <button class="update">Update</button>
+        </div>
+        <div class="gridBox">
+          <img src="" alt="" />
+          <p id="productName2"></p>
+          <p id="price2"></p>
+          <div id="desc2"></div>
+          <button class="remove">Remove</button>
+          <button class="update">Update</button>
+        </div>
+        <div class="gridBox">
+          <img src="" alt="" />
+          <p id="productName3"></p>
+          <p id="price3"></p>
+          <div id="desc3"></div>
+          <button class="remove">Remove</button>
+          <button class="update">Update</button>
+        </div>
+        <div class="gridBox">
+          <img src="" alt="" />
+          <p id="productName4"></p>
+          <p id="price4"></p>
+          <div id="desc4"></div>
+          <button class="remove">Remove</button>
+          <button class="update">Update</button>
+        </div>
+        <div class="gridBox">
+          <img src="" alt="" />
+          <p id="productName5"></p>
+          <p id="price5"></p>
+          <div id="desc5"></div>
+          <button class="remove">Remove</button>
+          <button class="update">Update</button>
+        </div>
+        <div class="gridBox">
+          <img src="" alt="" />
+          <p id="productName6"></p>
+          <p id="price6"></p>
+          <div id="desc6"></div>
+          <button class="remove">Remove</button>
+          <button class="update">Update</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+<script>
+  var cont = document.getElementById("container");
+  var div1 = document.getElementById("div1");
+  var div2 = document.getElementById("div2");
+  var addBtn = document.getElementById("add");
+
+  var child = 1;
+  function addDiv() {
+    var img = document.getElementById("img");
+    var name = document.getElementById("Name").value;
+    var price = document.getElementById("price").value;
+    var desc = document.getElementById("desc");
+    var date = document.getElementById("edd");
+    document.getElementById("image1").setAttribute("src", "");
+    document.getElementById("productName1").textContent = name;
+    document.getElementById("price1").textContent = price;
+    document.getElementById("desc1").textContent = desc;
+    document.getElementById("edd1").textContent = date;
+  }
+  addBtn.addEventListener("click", addDiv);
+  var removeBtn = document.querySelector(".remove");
+  var updateBtn = document.querySelector(".update");
+  function remove() {
+    var btn = document.getElementsByClassName("remove");
+    btn.parentElement.remove();
+  }
+  removeBtn.addEventListener("click", remove);
+  function update() {
+    var new_price = prompt("Enter new price");
+    document.getElementById("price1").textContent = new_price;
+  }
+  updateBtn.addEventListener("click", update);
+</script>
